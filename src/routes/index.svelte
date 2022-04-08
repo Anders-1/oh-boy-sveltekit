@@ -32,6 +32,11 @@
     		isdark = true;
         theme.set("dark");
       }
+      else {
+        document.body.classList.remove('dark');
+        isdark = false;
+        theme.set("light");
+      }
     }
     else {
       if ($theme == "dark") {
@@ -55,11 +60,11 @@
       document.body.classList.add('dark');
   	}
     else if (isdark == true) {
-      theme.set("light")
+      theme.set("light");
       document.body.classList.remove('dark');
     }
 
-    isdark = !isdark
+    isdark = !isdark;
   }
 
 </script>
@@ -133,5 +138,7 @@
   :global(.bodytransition) {
     transition: --bg-color, 0.2s;
   }
-
+  .hideMe {
+    visibility:hidden;
+  }
 </style>
