@@ -22,23 +22,30 @@
 											   'https://st.depositphotos.com/2196544/2312/i/600/depositphotos_23120686-stock-photo-sneaking-spy.jpg']
 
 	let isdark = false;
-  console.log($theme);
 
   onMount(async () => {
 
-    if ($theme == "null") {
-      console.log("Setting theme!");
+    if ($theme == "null" || $theme == "undefined" || $theme == "") {
     	if (window.matchMedia &&
     			window.matchMedia('(prefers-color-scheme: dark)').matches) {
     		document.body.classList.add('dark');
     		isdark = true;
         theme.set("dark");
-        setTimeout(function(){
-          document.body.classList.add('bodytransition');
-        }, 100);
-        console.log("Theme set!");
       }
     }
+    else {
+      if ($theme == "dark") {
+        isdark = true;
+        document.body.classList.add('dark');
+      }
+      else if ($theme == "light") {
+        isdark = false;
+        document.body.classList.remove('dark');
+      }
+    }
+    setTimeout(function(){
+      document.body.classList.add('bodytransition');
+    }, 100);
 
   });
 
@@ -93,7 +100,7 @@
 		</div>
   </div>
 </div>
-<h1>Theme: {$theme}</h1>
+
 
 <style>
 	/* :root {
