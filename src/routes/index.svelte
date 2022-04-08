@@ -6,6 +6,8 @@
 
 <script>
 
+  import {theme} from '../stores.js';
+  import { onMount } from 'svelte';
 
 	// Brand variables
 	let name = "AMS Detectives";
@@ -20,18 +22,33 @@
 											   'https://st.depositphotos.com/2196544/2312/i/600/depositphotos_23120686-stock-photo-sneaking-spy.jpg']
 
 	let isdark = false;
+  console.log($theme);
 
-	// if (window.matchMedia &&
-	// 		window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	// 	document.body.classList.add('dark');
-	// 	isdark = true;
-	// }
+  onMount(async () => {
+
+    if ($theme == "null") {
+      console.log("Setting theme!");
+    	if (window.matchMedia &&
+    			window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    		document.body.classList.add('dark');
+    		isdark = true;
+        theme.set("dark");
+        setTimeout(function(){
+          document.body.classList.add('bodytransition');
+        }, 100);
+        console.log("Theme set!");
+      }
+    }
+
+  });
 
 	function darkMode() {
   	if (isdark == false) {
+      theme.set("dark");
       document.body.classList.add('dark');
   	}
     else if (isdark == true) {
+      theme.set("light")
       document.body.classList.remove('dark');
     }
 
@@ -76,6 +93,7 @@
 		</div>
   </div>
 </div>
+<h1>Theme: {$theme}</h1>
 
 <style>
 	/* :root {
@@ -105,7 +123,7 @@
 		border: 3px solid black;
 	}
 
-  :global(body) {
+  :global(.bodytransition) {
     transition: --bg-color, 0.2s;
   }
 
