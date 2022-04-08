@@ -11,7 +11,7 @@
 	let name = "AMS Detectives";
 	let icon_light = '/images/icon-light.svg';
 	let icon_dark = '/images/icon-dark.svg';
-  let home = './';
+  let home = '..';
   let about = '/about';
   let testcase = '/cases/testcase';
 	let carousel_images = ['/images/spyads.jpeg',
@@ -27,7 +27,7 @@
 	// 	isdark = true;
 	// }
 
-	function darkMode() {
+  function darkMode() {
   	if (isdark == false) {
       document.body.classList.add('dark');
   	}
@@ -41,72 +41,37 @@
 </script>
 
 
+
 <nav class="nav">
   <div class="nav-left">
     <a class="brand" href="{home}">{name}</a>
 		<a class="brand">
 			<img class:is-hidden="{isdark}" src={icon_light} alt="Light spy icon">
-      <img class:is-hidden="{!isdark}" src={icon_dark} alt="Dark spy icon">
+			<img class:is-hidden="{!isdark}" src={icon_dark} alt="Dark spy icon">
 		</a>
     <div class="tabs">
-      <a class="active" href="{home}">Home</a>
-      <a href="{about}">About</a>
+      <a href="{home}">Home</a>
+      <a class="active" href="{about}">About</a>
     </div>
   </div>
   <div class="nav-right">
     <a class="button outline" on:click={darkMode}>Button</a>
   </div>
 </nav>
-<h1 class="text-center">{name}</h1>
-<h3 class="text-center">Have a case that needs to be solved?</h3>
-<h3 class="text-center">Us here at {name} have great detective skills and can solve any case you need!</h3>
-<div class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="3000">
-			<img src={carousel_images[0]} alt="{name} ads">
-    </div>
-    <div class="carousel-item" data-bs-interval="3000">
-			<img src={carousel_images[1]} alt="{name} case files">
-    </div>
-    <div class="carousel-item" data-bs-interval="3000">
-			<img src={carousel_images[2]} alt="{name} ads notes">
-    </div>
-		<div class="carousel-item black-border" data-bs-interval="3000">
-			<img src={carousel_images[3]} alt="spy clipart">
-		</div>
-  </div>
-</div>
+
+<h1>Tricky case!</h1>
+<h2>Do you think we can solve it? Let's see!</h2>
 
 <style>
-	/* :root {
-		--bg-color: pink !important;
-	}
-	:global(body.dark) {
-		--bg-color: lightblue;
-	} */
-	:global(body.dark) {
-		--bg-color: #000;
-		--bg-secondary-color: #131316;
-		--font-color: #f5f5f5;
-		--color-grey: #ccc;
-		--color-darkGrey: #777;
-	}
-
-	.carousel-item img {
-		border-radius: 10px;
-		display: block;
-	  margin-left: auto;
-	  margin-right: auto;
-	  width: 50%;
-		width: 500px;
-	}
-
-	.black-border img {
-		border: 3px solid black;
-	}
+  :global(body.dark) {
+    --bg-color: #000;
+    --bg-secondary-color: #131316;
+    --font-color: #f5f5f5;
+    --color-grey: #ccc;
+    --color-darkGrey: #777;
+  }
 
   :global(body) {
     transition: --bg-color, 0.2s;
   }
-
 </style>
