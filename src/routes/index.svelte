@@ -98,7 +98,7 @@
 </nav>
 <h1 class="text-center">{name}</h1>
 <h3 class="text-center">Have a case that needs to be solved?</h3>
-<h3 class="text-center">Us here at {name} have great detective skills and can solve any case you need!</h3>
+<h3 class="text-center">We here at {name} have great detective skills and can solve any case you need!</h3>
 <div class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="3000">
