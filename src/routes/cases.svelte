@@ -86,8 +86,8 @@
 		</a>
     <div class="tabs">
       <a href="{home}">Home</a>
-      <a class="active" href="{about}">About</a>
-      <a href="{cases}">Cases</a>
+      <a href="{about}">About</a>
+      <a class="active" href="{cases}">Cases</a>
     </div>
   </div>
   <div class="nav-right">
