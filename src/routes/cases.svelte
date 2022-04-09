@@ -23,6 +23,8 @@
 
 	let isdark = false;
   let button_text = "dark";
+  let caselist = ['testcase',
+                  'testcasetwo']
 
   onMount(async () => {
 
@@ -97,10 +99,13 @@
 
 <h1 class="text-center">These are our past and current cases.</h1>
 <ul>
-  <li>Case 1</li>
-  <li>Case 2</li>
-  <li>Case 3</li>
+	{#each caselist as name }
+		<li>
+			<a href="./cases/{name}">{name}</a>
+		</li>
+	{/each}
 </ul>
+
 
 <style>
   :global(body.dark) {
@@ -113,5 +118,9 @@
 
   :global(body) {
     transition: --bg-color, 0.3s;
+  }
+
+  li {
+    margin-left: 20px;
   }
 </style>
