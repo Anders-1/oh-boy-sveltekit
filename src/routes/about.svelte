@@ -59,8 +59,8 @@
   </div>
 </nav>
 
-<h1>This is {name}!</h1>
-<h2>We help solve cases!</h2>
+<h1 class="text-center">This is {name}!</h1>
+<h2 class="text-center">We help solve cases!</h2>
 
 <style>
   :global(body.dark) {
