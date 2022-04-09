@@ -25,6 +25,7 @@
 											   'https://st.depositphotos.com/2196544/2312/i/600/depositphotos_23120686-stock-photo-sneaking-spy.jpg']
 
 	let isdark = false;
+  let button_text = "dark";
 
   onMount(async () => {
 
@@ -32,21 +33,25 @@
     	if (window.matchMedia &&
     			window.matchMedia('(prefers-color-scheme: dark)').matches) {
     		document.body.classList.add('dark');
+        button_text = "light";
     		isdark = true;
         theme.set("dark");
       }
       else {
         document.body.classList.remove('dark');
+        button_text = "dark";
         isdark = false;
         theme.set("light");
       }
     }
     else {
       if ($theme == "dark") {
+        button_text = "light";
         isdark = true;
         document.body.classList.add('dark');
       }
       else if ($theme == "light") {
+        button_text = "dark";
         isdark = false;
         document.body.classList.remove('dark');
       }
@@ -59,10 +64,12 @@
 
 	function darkMode() {
   	if (isdark == false) {
+      button_text = "light";
       theme.set("dark");
       document.body.classList.add('dark');
   	}
     else if (isdark == true) {
+      button_text = "dark";
       theme.set("light");
       document.body.classList.remove('dark');
     }
@@ -86,7 +93,7 @@
     </div>
   </div>
   <div class="nav-right">
-    <a class="button outline" on:click={darkMode}>Button</a>
+    <a class="button outline" on:click={darkMode}>{button_text}</a>
   </div>
 </nav>
 <h1 class="text-center">{name}</h1>
