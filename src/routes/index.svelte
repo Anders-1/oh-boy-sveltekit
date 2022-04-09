@@ -14,7 +14,7 @@
 	// Brand variables
 	let name = "AMS Detectives";
 	let icon_light = '/images/icon-light.svg';
-	let icon_dark = '/images/icon-dark.svg'
+	let icon_dark = '/images/icon-dark.svg';
   let home = './';
   let about = '/about';
   let cases = '/cases';
