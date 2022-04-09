@@ -6,13 +6,15 @@
 
 <script>
 
+  // TODO: Use template for pages and cases.
+
   import {theme} from '../stores.js';
   import { onMount } from 'svelte';
 
 	// Brand variables
 	let name = "AMS Detectives";
 	let icon_light = '/images/icon-light.svg';
-	let icon_dark = '/images/icon-dark.svg';
+	let icon_dark = '/images/icon-dark.svg'
   let home = './';
   let about = '/about';
   let cases = '/cases';
