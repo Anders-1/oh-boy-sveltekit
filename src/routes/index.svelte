@@ -15,7 +15,7 @@
 	let icon_dark = '/images/icon-dark.svg';
   let home = './';
   let about = '/about';
-  let testcase = '/cases/testcase';
+  let cases = '/cases';
 	let carousel_images = ['/images/spyads.jpeg',
 	 											 '/images/spycase.jpeg',
 												 '/images/spynotes.jpeg',
@@ -87,6 +87,7 @@
     <div class="tabs">
       <a class="active" href="{home}">Home</a>
       <a href="{about}">About</a>
+      <a href="{cases}">Cases</a>
     </div>
   </div>
   <div class="nav-right">
