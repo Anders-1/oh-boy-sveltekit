@@ -73,7 +73,7 @@
 <nav class="nav">
   <div class="nav-left">
     <a class="brand" href="{home}">{name}</a>
-		<a class="brand">
+		<a class="brand" href="{home}">
 			<img class:is-hidden="{isdark}" src={icon_light} alt="Light spy icon">
       <img class:is-hidden="{!isdark}" src={icon_dark} alt="Dark spy icon">
 		</a>
