@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 
-const storedTheme = localStorage.getItem("theme");
+const storedTheme = typeof window !== 'undefined' ? localStorage.getItem('theme') : null
+
 export const theme = writable(storedTheme);
 
 let tocall;
@@ -16,5 +17,5 @@ theme.subscribe(value => {
     else {
       tocall = 'null';
     }
-    localStorage.setItem("theme", tocall);
+    typeof window !== 'undefined' ? localStorage.setItem('theme', tocall) : null
 });
