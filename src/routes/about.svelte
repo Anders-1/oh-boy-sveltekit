@@ -6,6 +6,8 @@
 
 <script>
 
+  import {theme} from '../stores.js';
+  import { onMount } from 'svelte';
 
 	// Brand variables
 	let name = "AMS Detectives";
@@ -20,34 +22,67 @@
 											   'https://st.depositphotos.com/2196544/2312/i/600/depositphotos_23120686-stock-photo-sneaking-spy.jpg']
 
 	let isdark = false;
+  let button_text = "dark";
 
-	// if (window.matchMedia &&
-	// 		window.matchMedia('(prefers-color-scheme: dark)').matches) {
-	// 	document.body.classList.add('dark');
-	// 	isdark = true;
-	// }
+  onMount(async () => {
 
-  function darkMode() {
+    if ($theme == "null" || $theme == "undefined" || $theme == "") {
+    	if (window.matchMedia &&
+    			window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    		document.body.classList.add('dark');
+        button_text = "light";
+    		isdark = true;
+        theme.set("dark");
+      }
+      else {
+        document.body.classList.remove('dark');
+        button_text = "dark";
+        isdark = false;
+        theme.set("light");
+      }
+    }
+    else {
+      if ($theme == "dark") {
+        button_text = "light";
+        isdark = true;
+        document.body.classList.add('dark');
+      }
+      else if ($theme == "light") {
+        button_text = "dark";
+        isdark = false;
+        document.body.classList.remove('dark');
+      }
+    }
+    setTimeout(function(){
+      document.body.classList.add('bodytransition');
+    }, 100);
+
+  });
+
+	function darkMode() {
   	if (isdark == false) {
+      button_text = "light";
+      theme.set("dark");
       document.body.classList.add('dark');
   	}
     else if (isdark == true) {
+      button_text = "dark";
+      theme.set("light");
       document.body.classList.remove('dark');
     }
 
-    isdark = !isdark
+    isdark = !isdark;
   }
 
 </script>
 
 
-
 <nav class="nav">
   <div class="nav-left">
     <a class="brand" href="{home}">{name}</a>
-		<a class="brand">
+		<a class="brand" href="{home}">
 			<img class:is-hidden="{isdark}" src={icon_light} alt="Light spy icon">
-			<img class:is-hidden="{!isdark}" src={icon_dark} alt="Dark spy icon">
+      <img class:is-hidden="{!isdark}" src={icon_dark} alt="Dark spy icon">
 		</a>
     <div class="tabs">
       <a href="{home}">Home</a>
@@ -55,7 +90,7 @@
     </div>
   </div>
   <div class="nav-right">
-    <a class="button outline" on:click={darkMode}>Button</a>
+    <a class="button outline" on:click={darkMode}>{button_text}</a>
   </div>
 </nav>
 
@@ -72,6 +107,6 @@
   }
 
   :global(body) {
-    transition: --bg-color, 0.2s;
+    transition: --bg-color, 0.3s;
   }
 </style>

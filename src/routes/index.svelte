@@ -6,9 +6,6 @@
 
 <script>
 
-  // TODO: Add dark mode code to about and cases. Also, change button text to
-  // dark/light depending on isdark value.
-
   import {theme} from '../stores.js';
   import { onMount } from 'svelte';
 
@@ -148,7 +145,5 @@
   :global(.bodytransition) {
     transition: --bg-color, 0.3s;
   }
-  .hideMe {
-    visibility:hidden;
-  }
+
 </style>
